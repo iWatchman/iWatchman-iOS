@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		906B93C71E590B1000E2D1E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B93C61E590B1000E2D1E2 /* AppDelegate.swift */; };
-		906B93C91E590B1000E2D1E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B93C81E590B1000E2D1E2 /* ViewController.swift */; };
+		906B93C91E590B1000E2D1E2 /* AllCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B93C81E590B1000E2D1E2 /* AllCameraViewController.swift */; };
 		906B93CC1E590B1000E2D1E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 906B93CA1E590B1000E2D1E2 /* Main.storyboard */; };
 		906B93CE1E590B1000E2D1E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 906B93CD1E590B1000E2D1E2 /* Assets.xcassets */; };
 		906B93D11E590B1000E2D1E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 906B93CF1E590B1000E2D1E2 /* LaunchScreen.storyboard */; };
 		906B93DC1E590B1000E2D1E2 /* iWatchmanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B93DB1E590B1000E2D1E2 /* iWatchmanTests.swift */; };
 		906B93E71E590B1000E2D1E2 /* iWatchmanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B93E61E590B1000E2D1E2 /* iWatchmanUITests.swift */; };
+		906B94331E5A0EAF00E2D1E2 /* CameraCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B94321E5A0EAF00E2D1E2 /* CameraCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		906B93C31E590B1000E2D1E2 /* iWatchman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWatchman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		906B93C61E590B1000E2D1E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		906B93C81E590B1000E2D1E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		906B93C81E590B1000E2D1E2 /* AllCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCameraViewController.swift; sourceTree = "<group>"; };
 		906B93CB1E590B1000E2D1E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		906B93CD1E590B1000E2D1E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		906B93D01E590B1000E2D1E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		906B93E21E590B1000E2D1E2 /* iWatchmanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iWatchmanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		906B93E61E590B1000E2D1E2 /* iWatchmanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iWatchmanUITests.swift; sourceTree = "<group>"; };
 		906B93E81E590B1000E2D1E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		906B94321E5A0EAF00E2D1E2 /* CameraCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				906B93C61E590B1000E2D1E2 /* AppDelegate.swift */,
-				906B93C81E590B1000E2D1E2 /* ViewController.swift */,
+				906B93C81E590B1000E2D1E2 /* AllCameraViewController.swift */,
+				906B94321E5A0EAF00E2D1E2 /* CameraCell.swift */,
 				906B93CA1E590B1000E2D1E2 /* Main.storyboard */,
 				906B93CD1E590B1000E2D1E2 /* Assets.xcassets */,
 				906B93CF1E590B1000E2D1E2 /* LaunchScreen.storyboard */,
@@ -262,7 +265,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				906B93C91E590B1000E2D1E2 /* ViewController.swift in Sources */,
+				906B94331E5A0EAF00E2D1E2 /* CameraCell.swift in Sources */,
+				906B93C91E590B1000E2D1E2 /* AllCameraViewController.swift in Sources */,
 				906B93C71E590B1000E2D1E2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,6 +518,7 @@
 				906B93ED1E590B1000E2D1E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		906B93EE1E590B1000E2D1E2 /* Build configuration list for PBXNativeTarget "iWatchmanTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +527,7 @@
 				906B93F01E590B1000E2D1E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		906B93F11E590B1000E2D1E2 /* Build configuration list for PBXNativeTarget "iWatchmanUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +536,7 @@
 				906B93F31E590B1000E2D1E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
