@@ -44,6 +44,21 @@ class AllCameraViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCameraDetail" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+//                let object = objects[indexPath.row] as! NSDate
+                let controller = segue.destination as! CameraDetailViewController
+                controller.cameraName = String(indexPath.row)
+//                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+//                controller.navigationItem.leftItemsSupplementBackButton = true
+            }
+        }
+    }
+
+    
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

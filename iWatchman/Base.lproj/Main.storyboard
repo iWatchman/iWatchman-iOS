@@ -15,24 +15,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="testCell" id="EkI-7S-v3a" customClass="CameraCell" customModule="iWatchman" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="testCell" id="EkI-7S-v3a" customClass="CameraCell" customModule="iWatchman" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EkI-7S-v3a" id="BeT-Ff-szN">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Test Cell" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nNn-eU-lgQ">
-                                            <frame key="frameInset" minX="15" minY="6" width="97" height="30"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CxZ-ww-qkR">
+                                            <frame key="frameInset" minX="8" minY="11" width="42" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="cellNameLabel" destination="nNn-eU-lgQ" id="Ywc-qd-bOH"/>
+                                    <outlet property="cellNameLabel" destination="CxZ-ww-qkR" id="kr4-Cw-KPq"/>
+                                    <segue destination="d8M-gV-Y7X" kind="push" identifier="showCameraDetail" id="pIv-R3-Zv4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -53,7 +54,29 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GI4-Tv-0LR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="382" y="33"/>
+            <point key="canvasLocation" x="381.60000000000002" y="32.833583208395808"/>
+        </scene>
+        <!--Camera Detail View-->
+        <scene sceneID="2X8-Gm-iYT">
+            <objects>
+                <viewController id="d8M-gV-Y7X" customClass="CameraDetailViewController" customModule="iWatchman" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hj3-Ix-vj6"/>
+                        <viewControllerLayoutGuide type="bottom" id="FSr-hk-9jy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p6F-2a-7gT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Camera Detail View" id="ica-fU-1CY"/>
+                    <connections>
+                        <outlet property="titleNavigationItem" destination="ica-fU-1CY" id="0YO-r1-FRO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aP7-7w-w4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1144" y="27"/>
         </scene>
         <!--Settings-->
         <scene sceneID="MVd-2i-Mm8">

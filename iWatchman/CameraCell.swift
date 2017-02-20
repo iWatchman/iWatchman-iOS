@@ -10,7 +10,7 @@ import UIKit
 
 class CameraCell: UITableViewCell {
 
-    @IBOutlet weak private var cellNameLabel: UITextField!
+    @IBOutlet weak private var cellNameLabel: UILabel!
     
     var cameraName : String {
         get {
