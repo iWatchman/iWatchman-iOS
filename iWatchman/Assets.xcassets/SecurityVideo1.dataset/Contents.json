@@ -1,0 +1,13 @@
+{
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "data" : [
+    {
+      "idiom" : "universal",
+      "filename" : "Fight_OneManDown.mpg",
+      "universal-type-identifier" : "public.mpeg"
+    }
+  ]
+}

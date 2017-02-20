@@ -16,6 +16,8 @@
 		906B93E71E590B1000E2D1E2 /* iWatchmanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B93E61E590B1000E2D1E2 /* iWatchmanUITests.swift */; };
 		906B94331E5A0EAF00E2D1E2 /* CameraCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B94321E5A0EAF00E2D1E2 /* CameraCell.swift */; };
 		906B94711E5AB3B600E2D1E2 /* CameraDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B94701E5AB3B600E2D1E2 /* CameraDetailViewController.swift */; };
+		906B94751E5ABB4D00E2D1E2 /* Fight_OneManDown.mpg in Resources */ = {isa = PBXBuildFile; fileRef = 906B94741E5ABB4D00E2D1E2 /* Fight_OneManDown.mpg */; };
+		906B94781E5AC0BD00E2D1E2 /* BC9ry2ZoYks.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 906B94771E5AC0BD00E2D1E2 /* BC9ry2ZoYks.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		906B93E81E590B1000E2D1E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		906B94321E5A0EAF00E2D1E2 /* CameraCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraCell.swift; sourceTree = "<group>"; };
 		906B94701E5AB3B600E2D1E2 /* CameraDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraDetailViewController.swift; sourceTree = "<group>"; };
+		906B94741E5ABB4D00E2D1E2 /* Fight_OneManDown.mpg */ = {isa = PBXFileReference; lastKnownFileType = video.mpeg; path = Fight_OneManDown.mpg; sourceTree = "<group>"; };
+		906B94771E5AC0BD00E2D1E2 /* BC9ry2ZoYks.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = BC9ry2ZoYks.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 				906B93CA1E590B1000E2D1E2 /* Main.storyboard */,
 				906B94701E5AB3B600E2D1E2 /* CameraDetailViewController.swift */,
 				906B93CD1E590B1000E2D1E2 /* Assets.xcassets */,
+				906B94761E5ABD2600E2D1E2 /* Videos */,
 				906B93CF1E590B1000E2D1E2 /* LaunchScreen.storyboard */,
 				906B93D21E590B1000E2D1E2 /* Info.plist */,
 			);
@@ -129,6 +134,15 @@
 				906B93E81E590B1000E2D1E2 /* Info.plist */,
 			);
 			path = iWatchmanUITests;
+			sourceTree = "<group>";
+		};
+		906B94761E5ABD2600E2D1E2 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				906B94741E5ABB4D00E2D1E2 /* Fight_OneManDown.mpg */,
+				906B94771E5AC0BD00E2D1E2 /* BC9ry2ZoYks.mp4 */,
+			);
+			name = Videos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +256,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				906B93D11E590B1000E2D1E2 /* LaunchScreen.storyboard in Resources */,
+				906B94781E5AC0BD00E2D1E2 /* BC9ry2ZoYks.mp4 in Resources */,
+				906B94751E5ABB4D00E2D1E2 /* Fight_OneManDown.mpg in Resources */,
 				906B93CE1E590B1000E2D1E2 /* Assets.xcassets in Resources */,
 				906B93CC1E590B1000E2D1E2 /* Main.storyboard in Resources */,
 			);

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
 class CameraDetailViewController: UIViewController {
 
@@ -37,6 +39,15 @@ class CameraDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func playVideo(_ sender: AnyObject) {
+        let videoURL: URL = Bundle.main.url(forResource: "BC9ry2ZoYks", withExtension: "mp4")!
+        let player = AVPlayer(url: videoURL)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        self.present(playerViewController, animated: true) {
+            playerViewController.player!.play()
+        }
+    }
 
     /*
     // MARK: - Navigation
