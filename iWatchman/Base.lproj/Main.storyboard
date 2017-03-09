@@ -9,7 +9,7 @@
         <!--AllCameraViewController-->
         <scene sceneID="KJq-Wr-l9j">
             <objects>
-                <tableViewController title="AllCameraViewController" id="WZ9-WG-gaD" customClass="AllCameraViewController" customModule="iWatchman" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="AllCameraViewController" id="WZ9-WG-gaD" customClass="AllCameraEventsViewController" customModule="iWatchman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="amy-77-LcN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CxZ-ww-qkR">
-                                            <frame key="frameInset" minX="8" minY="11" width="42" height="21"/>
+                                            <frame key="frameInset" minX="8" minY="11" width="334" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -43,7 +43,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="All Cameras" id="sKP-YP-mMI">
+                    <navigationItem key="navigationItem" title="All Camera Events" id="sKP-YP-mMI">
                         <barButtonItem key="rightBarButtonItem" title="Settings" style="plain" id="g3c-SA-AFs">
                             <connections>
                                 <segue destination="OAE-jp-cFR" kind="show" id="vib-se-fuF"/>
@@ -68,25 +68,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhA-1e-V1Q">
-                                <frame key="frameInset" minX="172" minY="318" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhA-1e-V1Q">
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="playVideo:" destination="d8M-gV-Y7X" eventType="touchUpInside" id="wnZ-CV-mAl"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera 0: Dashcam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECF-Tm-UUr">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="189" id="enx-4b-a3e"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bhA-1e-V1Q" firstAttribute="centerY" secondItem="p6F-2a-7gT" secondAttribute="centerY" id="3Cn-Bt-w3a"/>
+                            <constraint firstItem="ECF-Tm-UUr" firstAttribute="centerX" secondItem="bhA-1e-V1Q" secondAttribute="centerX" id="7mR-Dg-KA4"/>
+                            <constraint firstItem="ECF-Tm-UUr" firstAttribute="top" secondItem="Hj3-Ix-vj6" secondAttribute="bottom" constant="104" id="B0c-z9-WbV"/>
+                            <constraint firstItem="ECF-Tm-UUr" firstAttribute="centerX" secondItem="p6F-2a-7gT" secondAttribute="centerX" id="wGr-K3-fsc"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Camera Detail View" id="ica-fU-1CY"/>
                     <connections>
+                        <outlet property="cameraNameLabel" destination="ECF-Tm-UUr" id="Nup-Vp-ek0"/>
                         <outlet property="titleNavigationItem" destination="ica-fU-1CY" id="0YO-r1-FRO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aP7-7w-w4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144" y="27"/>
+            <point key="canvasLocation" x="1143.2" y="26.53673163418291"/>
         </scene>
         <!--Settings-->
         <scene sceneID="MVd-2i-Mm8">
