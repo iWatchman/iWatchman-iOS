@@ -12,42 +12,18 @@ import AVKit
 
 class CameraEventDetailViewController: UIViewController {
 
-    @IBOutlet weak private var titleNavigationItem: UINavigationItem!
-    @IBOutlet weak private var cameraNameLabel: UILabel!
-
+    @IBOutlet weak var dateValueLabel: UILabel!
+    @IBOutlet weak var timeValueLabel: UILabel!
+    
     @IBOutlet weak var videoThumbnailView: UIImageView!
     
     let videoURLRoot: NSURL = NSURL(string: "https://test-project-156600.appspot.com/api/getVideoClip/")!
     var videoID = "1"
     var videoURL: NSURL? = nil
     
-    var eventName : String {
-        get {
-            if let title = titleNavigationItem.title {
-                return title
-            } else {
-                return ""
-            }
-        }
-        
-        set {
-            titleNavigationItem.title = newValue
-        }
-    }
-
-//    var cameraName : String {
-//        get {
-//            if let title = cameraNameLabel.text {
-//                return title
-//            } else {
-//                return ""
-//            }
-//        }
-//        
-//        set {
-//            cameraNameLabel.text = newValue
-//        }
-//    }
+    let myDateFormatter = DateFormatter()
+    
+    var eventDate : Date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +33,16 @@ class CameraEventDetailViewController: UIViewController {
             () -> Void in
             self?.setVideoThumbnail()
         }
+        
+        // Set Date and Time
+        myDateFormatter.dateStyle = .medium
+        myDateFormatter.timeStyle = .none
+        
+        dateValueLabel.text = myDateFormatter.string(from: eventDate)
+        
+        myDateFormatter.dateStyle = .none
+        myDateFormatter.timeStyle = .medium
+        timeValueLabel.text = myDateFormatter.string(from: eventDate)
     }
 
     @IBAction func playVideo(_ sender: AnyObject) {

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -56,7 +57,7 @@
             </objects>
             <point key="canvasLocation" x="381.60000000000002" y="32.833583208395808"/>
         </scene>
-        <!--Camera Event Detail View-->
+        <!--Camera Event Detail View Controller-->
         <scene sceneID="2X8-Gm-iYT">
             <objects>
                 <viewController id="d8M-gV-Y7X" customClass="CameraEventDetailViewController" customModule="iWatchman" customModuleProvider="target" sceneMemberID="viewController">
@@ -68,11 +69,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera 0: Dashcam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECF-Tm-UUr">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TMt-3m-NHC">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="206" id="Y4j-ZD-WJg"/>
@@ -85,22 +81,55 @@
                                     <action selector="playVideo:" destination="d8M-gV-Y7X" eventType="touchUpInside" id="wnZ-CV-mAl"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCC-Iu-MhH">
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1st January 1975" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHY-QG-LNg">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3U-rT-Exk">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4:05 PM EDT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w41-bM-7uz">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera:   1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zd8-Ao-4wt">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TMt-3m-NHC" firstAttribute="leading" secondItem="p6F-2a-7gT" secondAttribute="leading" id="0EL-DX-FCO"/>
-                            <constraint firstItem="ECF-Tm-UUr" firstAttribute="top" secondItem="TMt-3m-NHC" secondAttribute="bottom" constant="97" id="IOM-2g-50X"/>
+                            <constraint firstItem="UHY-QG-LNg" firstAttribute="leading" secondItem="lCC-Iu-MhH" secondAttribute="trailing" constant="8" id="865-1x-cnT"/>
+                            <constraint firstItem="zd8-Ao-4wt" firstAttribute="top" secondItem="H3U-rT-Exk" secondAttribute="bottom" constant="15" id="KwT-Lt-kRy"/>
+                            <constraint firstItem="H3U-rT-Exk" firstAttribute="leading" secondItem="lCC-Iu-MhH" secondAttribute="leading" id="LGH-V1-mo2"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="lCC-Iu-MhH" secondAttribute="leading" id="Sgn-fm-os5"/>
+                            <constraint firstItem="H3U-rT-Exk" firstAttribute="top" secondItem="lCC-Iu-MhH" secondAttribute="bottom" constant="16" id="TKT-OQ-uHQ"/>
+                            <constraint firstItem="lCC-Iu-MhH" firstAttribute="top" secondItem="Hj3-Ix-vj6" secondAttribute="bottom" constant="259" id="VzN-nG-VaE"/>
+                            <constraint firstItem="w41-bM-7uz" firstAttribute="baseline" secondItem="H3U-rT-Exk" secondAttribute="baseline" id="XdM-dN-bvY"/>
+                            <constraint firstItem="w41-bM-7uz" firstAttribute="leading" secondItem="H3U-rT-Exk" secondAttribute="trailing" constant="10" id="ckG-Hw-pPC"/>
                             <constraint firstItem="TMt-3m-NHC" firstAttribute="top" secondItem="Hj3-Ix-vj6" secondAttribute="bottom" id="dRV-Mz-v5q"/>
-                            <constraint firstItem="ECF-Tm-UUr" firstAttribute="centerX" secondItem="p6F-2a-7gT" secondAttribute="centerX" id="eWE-YH-U0w"/>
+                            <constraint firstItem="zd8-Ao-4wt" firstAttribute="leading" secondItem="H3U-rT-Exk" secondAttribute="leading" id="e55-61-gfW"/>
+                            <constraint firstItem="lCC-Iu-MhH" firstAttribute="baseline" secondItem="UHY-QG-LNg" secondAttribute="baseline" id="hOi-Cp-h3m"/>
                             <constraint firstItem="TMt-3m-NHC" firstAttribute="centerX" secondItem="bhA-1e-V1Q" secondAttribute="centerX" id="pbS-Ba-gLq"/>
                             <constraint firstAttribute="trailing" secondItem="TMt-3m-NHC" secondAttribute="trailing" id="uCw-02-S9B"/>
                             <constraint firstItem="TMt-3m-NHC" firstAttribute="centerY" secondItem="bhA-1e-V1Q" secondAttribute="centerY" id="xMu-yY-giv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Camera Event Detail View" id="ica-fU-1CY"/>
+                    <navigationItem key="navigationItem" id="ica-fU-1CY"/>
                     <connections>
-                        <outlet property="cameraNameLabel" destination="ECF-Tm-UUr" id="Nup-Vp-ek0"/>
-                        <outlet property="titleNavigationItem" destination="ica-fU-1CY" id="0YO-r1-FRO"/>
+                        <outlet property="dateValueLabel" destination="UHY-QG-LNg" id="PzV-hA-0d1"/>
+                        <outlet property="timeValueLabel" destination="w41-bM-7uz" id="DC1-C3-93d"/>
                         <outlet property="videoThumbnailView" destination="TMt-3m-NHC" id="KD8-Rb-mfI"/>
                     </connections>
                 </viewController>

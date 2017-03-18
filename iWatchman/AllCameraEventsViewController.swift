@@ -57,12 +57,8 @@ class AllCameraEventsViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCameraDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-//                let object = objects[indexPath.row] as! NSDate
                 let controller = segue.destination as! CameraEventDetailViewController
-                controller.eventName = String(describing: dates[indexPath.row])
-//                controller.cameraName = "Camera: " + String(indexPath.row + 1)
-//                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
-//                controller.navigationItem.leftItemsSupplementBackButton = true
+                controller.eventDate = dates[indexPath.row]
             }
         }
     }
