@@ -17,6 +17,10 @@ class CameraDetailViewController: UIViewController {
 
     @IBOutlet weak var videoThumbnailView: UIImageView!
     
+    let videoURLRoot: NSURL = NSURL(string: "https://test-project-156600.appspot.com/api/getVideoClip/")!
+    var videoID = "1"
+    var videoURL: NSURL? = nil
+    
     var eventName : String {
         get {
             if let title = titleNavigationItem.title {
@@ -47,12 +51,16 @@ class CameraDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setVideoThumbnail()
+        videoURL = NSURL(string: videoID, relativeTo: videoURLRoot as URL)
+        
+        DispatchQueue.global(qos: .background).async { [weak self]
+            () -> Void in
+            self?.setVideoThumbnail()
+        }
     }
 
     @IBAction func playVideo(_ sender: AnyObject) {
-        let videoURL: URL = Bundle.main.url(forResource: "X1qIijvAk2Q", withExtension: "mp4")!
-        let player = AVPlayer(url: videoURL)
+        let player = AVPlayer(url: videoURL as! URL)
         let playerViewController = AVPlayerViewController()
         playerViewController.player = player
         self.present(playerViewController, animated: true) {
@@ -61,14 +69,18 @@ class CameraDetailViewController: UIViewController {
     }
     
     func setVideoThumbnail() {
-        let videoURL: URL = Bundle.main.url(forResource: "X1qIijvAk2Q", withExtension: "mp4")!
-        let asset = AVAsset(url: videoURL)
+        let asset = AVAsset(url: videoURL as! URL)
+        
         let assetGenerator = AVAssetImageGenerator(asset: asset)
         
         let assetGeneratorCompletionHandler: AVAssetImageGeneratorCompletionHandler = {(requestedTime, image, actualTime, result, error ) -> Void in
             
             if let img = image {
-                self.videoThumbnailView.image = UIImage(cgImage: img);
+                
+                DispatchQueue.main.async { [weak self]
+                    () -> Void in
+                    self?.videoThumbnailView.image = UIImage(cgImage: img);
+                }
             } else {
                 print("Failed to generate thumbnail.")
             }
