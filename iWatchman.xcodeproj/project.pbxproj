@@ -19,6 +19,11 @@
 		906B94751E5ABB4D00E2D1E2 /* Fight_OneManDown.mpg in Resources */ = {isa = PBXBuildFile; fileRef = 906B94741E5ABB4D00E2D1E2 /* Fight_OneManDown.mpg */; };
 		906B94781E5AC0BD00E2D1E2 /* BC9ry2ZoYks.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 906B94771E5AC0BD00E2D1E2 /* BC9ry2ZoYks.mp4 */; };
 		906B947A1E5E2A0100E2D1E2 /* X1qIijvAk2Q.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 906B94791E5E2A0100E2D1E2 /* X1qIijvAk2Q.mp4 */; };
+		90F9A2971E7DC173005C5446 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F9A2961E7DC173005C5446 /* Realm.framework */; };
+		90F9A2981E7DC173005C5446 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90F9A2961E7DC173005C5446 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		90F9A29B1E7DC182005C5446 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F9A29A1E7DC182005C5446 /* RealmSwift.framework */; };
+		90F9A29C1E7DC182005C5446 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90F9A29A1E7DC182005C5446 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		90F9A29E1E7DC6D5005C5446 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F9A29D1E7DC6D5005C5446 /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +42,21 @@
 			remoteInfo = iWatchman;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		90F9A2991E7DC173005C5446 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				90F9A29C1E7DC182005C5446 /* RealmSwift.framework in Embed Frameworks */,
+				90F9A2981E7DC173005C5446 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		906B93C31E590B1000E2D1E2 /* iWatchman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWatchman.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +77,9 @@
 		906B94741E5ABB4D00E2D1E2 /* Fight_OneManDown.mpg */ = {isa = PBXFileReference; lastKnownFileType = video.mpeg; path = Fight_OneManDown.mpg; sourceTree = "<group>"; };
 		906B94771E5AC0BD00E2D1E2 /* BC9ry2ZoYks.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = BC9ry2ZoYks.mp4; sourceTree = "<group>"; };
 		906B94791E5E2A0100E2D1E2 /* X1qIijvAk2Q.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = X1qIijvAk2Q.mp4; sourceTree = "<group>"; };
+		90F9A2961E7DC173005C5446 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		90F9A29A1E7DC182005C5446 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		90F9A29D1E7DC6D5005C5446 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +87,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90F9A29B1E7DC182005C5446 /* RealmSwift.framework in Frameworks */,
+				90F9A2971E7DC173005C5446 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +112,8 @@
 		906B93BA1E590B1000E2D1E2 = {
 			isa = PBXGroup;
 			children = (
+				90F9A29A1E7DC182005C5446 /* RealmSwift.framework */,
+				90F9A2961E7DC173005C5446 /* Realm.framework */,
 				906B93C51E590B1000E2D1E2 /* iWatchman */,
 				906B93DA1E590B1000E2D1E2 /* iWatchmanTests */,
 				906B93E51E590B1000E2D1E2 /* iWatchmanUITests */,
@@ -109,6 +136,7 @@
 			children = (
 				906B93C61E590B1000E2D1E2 /* AppDelegate.swift */,
 				906B93C81E590B1000E2D1E2 /* AllCameraEventsViewController.swift */,
+				90F9A29D1E7DC6D5005C5446 /* Event.swift */,
 				906B94321E5A0EAF00E2D1E2 /* CameraEventCell.swift */,
 				906B93CA1E590B1000E2D1E2 /* Main.storyboard */,
 				906B94701E5AB3B600E2D1E2 /* CameraEventDetailViewController.swift */,
@@ -158,6 +186,7 @@
 				906B93BF1E590B1000E2D1E2 /* Sources */,
 				906B93C01E590B1000E2D1E2 /* Frameworks */,
 				906B93C11E590B1000E2D1E2 /* Resources */,
+				90F9A2991E7DC173005C5446 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -292,6 +321,7 @@
 				906B94331E5A0EAF00E2D1E2 /* CameraEventCell.swift in Sources */,
 				906B93C91E590B1000E2D1E2 /* AllCameraEventsViewController.swift in Sources */,
 				906B93C71E590B1000E2D1E2 /* AppDelegate.swift in Sources */,
+				90F9A29E1E7DC6D5005C5446 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +474,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LLVD2YCLN9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = iWatchman/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.tejasd.iWatchman;
@@ -457,6 +491,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LLVD2YCLN9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = iWatchman/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.tejasd.iWatchman;

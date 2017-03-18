@@ -7,24 +7,22 @@
 //
 
 import UIKit
-
-let dates: [Date] = [
-    Date(timeInterval: -500000, since: Date()),
-    Date(timeInterval: -400000, since: Date()),
-    Date(timeInterval: -300000, since: Date()),
-    Date(timeInterval: -200000, since: Date()),
-    Date(timeInterval: -100000, since: Date())
-]
+import RealmSwift
 
 class AllCameraEventsViewController: UITableViewController {
+    
+    let events = try! Realm().objects(Event.self).sorted(by: ["eventDate"])
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        let realm = try! Realm()
+        if realm.isEmpty {
+            try! realm.write {
+                realm.add(Event(remoteID: "1", eventDate: NSDate()))
+                realm.add(Event(remoteID: "2", eventDate: NSDate()))
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,13 +39,13 @@ class AllCameraEventsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dates.count
+        return events.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath) as! CameraEventCell
-        cell.cameraName = String(describing: dates[indexPath.row])
+        cell.cameraName = String(describing: events[indexPath.row].eventDate)
 
         return cell
     }
@@ -58,7 +56,7 @@ class AllCameraEventsViewController: UITableViewController {
         if segue.identifier == "showCameraDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let controller = segue.destination as! CameraEventDetailViewController
-                controller.eventDate = dates[indexPath.row]
+                controller.eventDate = events[indexPath.row].eventDate as Date
             }
         }
     }
