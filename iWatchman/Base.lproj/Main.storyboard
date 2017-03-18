@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="testCell" id="EkI-7S-v3a" customClass="CameraCell" customModule="iWatchman" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="testCell" id="EkI-7S-v3a" customClass="CameraEventCell" customModule="iWatchman" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EkI-7S-v3a" id="BeT-Ff-szN">
@@ -59,7 +59,7 @@
         <!--Camera Event Detail View-->
         <scene sceneID="2X8-Gm-iYT">
             <objects>
-                <viewController id="d8M-gV-Y7X" customClass="CameraDetailViewController" customModule="iWatchman" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="d8M-gV-Y7X" customClass="CameraEventDetailViewController" customModule="iWatchman" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hj3-Ix-vj6"/>
                         <viewControllerLayoutGuide type="bottom" id="FSr-hk-9jy"/>

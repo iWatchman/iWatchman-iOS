@@ -46,7 +46,7 @@ class AllCameraEventsViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath) as! CameraCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath) as! CameraEventCell
         cell.cameraName = String(describing: dates[indexPath.row])
 
         return cell
@@ -58,7 +58,7 @@ class AllCameraEventsViewController: UITableViewController {
         if segue.identifier == "showCameraDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
 //                let object = objects[indexPath.row] as! NSDate
-                let controller = segue.destination as! CameraDetailViewController
+                let controller = segue.destination as! CameraEventDetailViewController
                 controller.eventName = String(describing: dates[indexPath.row])
 //                controller.cameraName = "Camera: " + String(indexPath.row + 1)
 //                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem

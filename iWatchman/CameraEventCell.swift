@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CameraCell: UITableViewCell {
+class CameraEventCell: UITableViewCell {
 
     @IBOutlet weak private var cellNameLabel: UILabel!
     

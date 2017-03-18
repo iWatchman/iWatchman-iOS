@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import AVKit
 
-class CameraDetailViewController: UIViewController {
+class CameraEventDetailViewController: UIViewController {
 
     @IBOutlet weak private var titleNavigationItem: UINavigationItem!
     @IBOutlet weak private var cameraNameLabel: UILabel!
