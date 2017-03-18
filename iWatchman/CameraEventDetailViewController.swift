@@ -15,6 +15,7 @@ class CameraDetailViewController: UIViewController {
     @IBOutlet weak private var titleNavigationItem: UINavigationItem!
     @IBOutlet weak private var cameraNameLabel: UILabel!
 
+    @IBOutlet weak var videoThumbnailView: UIImageView!
     
     var eventName : String {
         get {
@@ -46,15 +47,9 @@ class CameraDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setVideoThumbnail()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func playVideo(_ sender: AnyObject) {
         let videoURL: URL = Bundle.main.url(forResource: "X1qIijvAk2Q", withExtension: "mp4")!
         let player = AVPlayer(url: videoURL)
@@ -63,6 +58,27 @@ class CameraDetailViewController: UIViewController {
         self.present(playerViewController, animated: true) {
             playerViewController.player!.play()
         }
+    }
+    
+    func setVideoThumbnail() {
+        let videoURL: URL = Bundle.main.url(forResource: "X1qIijvAk2Q", withExtension: "mp4")!
+        let asset = AVAsset(url: videoURL)
+        let assetGenerator = AVAssetImageGenerator(asset: asset)
+        
+//        let thumbnail = assetGenerator.copyCGImage(at: CMTimeMake(1, 1), actualTime: nil)
+        
+        let assetGeneratorCompletionHandler: AVAssetImageGeneratorCompletionHandler = {(requestedTime, image, actualTime, result, error ) -> Void in
+            
+            if let img = image {
+                self.videoThumbnailView.image = UIImage(cgImage: img);
+            } else {
+                print("Failed to generate thumbnail.")
+            }
+        }
+        
+        let tVal = NSValue(time: CMTimeMultiplyByFloat64(asset.duration, 0.5))
+        
+        assetGenerator.generateCGImagesAsynchronously(forTimes: [tVal], completionHandler: assetGeneratorCompletionHandler);
     }
 
     /*

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EIX-yc-Cuf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EIX-yc-Cuf">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EkI-7S-v3a" id="BeT-Ff-szN">
-                                    <frame key="frameInset" width="342" height="43"/>
+                                    <frame key="frameInset" width="342" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CxZ-ww-qkR">
@@ -56,7 +56,7 @@
             </objects>
             <point key="canvasLocation" x="381.60000000000002" y="32.833583208395808"/>
         </scene>
-        <!--Camera Detail View-->
+        <!--Camera Event Detail View-->
         <scene sceneID="2X8-Gm-iYT">
             <objects>
                 <viewController id="d8M-gV-Y7X" customClass="CameraDetailViewController" customModule="iWatchman" customModuleProvider="target" sceneMemberID="viewController">
@@ -68,33 +68,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhA-1e-V1Q">
-                                <state key="normal" title="Play"/>
-                                <connections>
-                                    <action selector="playVideo:" destination="d8M-gV-Y7X" eventType="touchUpInside" id="wnZ-CV-mAl"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera 0: Dashcam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECF-Tm-UUr">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="189" id="enx-4b-a3e"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TMt-3m-NHC">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="206" id="Y4j-ZD-WJg"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhA-1e-V1Q">
+                                <state key="normal" image="play-icon"/>
+                                <state key="highlighted" image="play-icon-highlighted"/>
+                                <connections>
+                                    <action selector="playVideo:" destination="d8M-gV-Y7X" eventType="touchUpInside" id="wnZ-CV-mAl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bhA-1e-V1Q" firstAttribute="centerY" secondItem="p6F-2a-7gT" secondAttribute="centerY" id="3Cn-Bt-w3a"/>
-                            <constraint firstItem="ECF-Tm-UUr" firstAttribute="centerX" secondItem="bhA-1e-V1Q" secondAttribute="centerX" id="7mR-Dg-KA4"/>
-                            <constraint firstItem="ECF-Tm-UUr" firstAttribute="top" secondItem="Hj3-Ix-vj6" secondAttribute="bottom" constant="104" id="B0c-z9-WbV"/>
-                            <constraint firstItem="ECF-Tm-UUr" firstAttribute="centerX" secondItem="p6F-2a-7gT" secondAttribute="centerX" id="wGr-K3-fsc"/>
+                            <constraint firstItem="TMt-3m-NHC" firstAttribute="leading" secondItem="p6F-2a-7gT" secondAttribute="leading" id="0EL-DX-FCO"/>
+                            <constraint firstItem="ECF-Tm-UUr" firstAttribute="top" secondItem="TMt-3m-NHC" secondAttribute="bottom" constant="97" id="IOM-2g-50X"/>
+                            <constraint firstItem="TMt-3m-NHC" firstAttribute="top" secondItem="Hj3-Ix-vj6" secondAttribute="bottom" id="dRV-Mz-v5q"/>
+                            <constraint firstItem="ECF-Tm-UUr" firstAttribute="centerX" secondItem="p6F-2a-7gT" secondAttribute="centerX" id="eWE-YH-U0w"/>
+                            <constraint firstItem="TMt-3m-NHC" firstAttribute="centerX" secondItem="bhA-1e-V1Q" secondAttribute="centerX" id="pbS-Ba-gLq"/>
+                            <constraint firstAttribute="trailing" secondItem="TMt-3m-NHC" secondAttribute="trailing" id="uCw-02-S9B"/>
+                            <constraint firstItem="TMt-3m-NHC" firstAttribute="centerY" secondItem="bhA-1e-V1Q" secondAttribute="centerY" id="xMu-yY-giv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Camera Detail View" id="ica-fU-1CY"/>
+                    <navigationItem key="navigationItem" title="Camera Event Detail View" id="ica-fU-1CY"/>
                     <connections>
                         <outlet property="cameraNameLabel" destination="ECF-Tm-UUr" id="Nup-Vp-ek0"/>
                         <outlet property="titleNavigationItem" destination="ica-fU-1CY" id="0YO-r1-FRO"/>
+                        <outlet property="videoThumbnailView" destination="TMt-3m-NHC" id="KD8-Rb-mfI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aP7-7w-w4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -137,4 +144,8 @@
             <point key="canvasLocation" x="-489" y="33"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="play-icon" width="50" height="62"/>
+        <image name="play-icon-highlighted" width="51" height="62"/>
+    </resources>
 </document>
