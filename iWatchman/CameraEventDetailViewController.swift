@@ -65,8 +65,6 @@ class CameraDetailViewController: UIViewController {
         let asset = AVAsset(url: videoURL)
         let assetGenerator = AVAssetImageGenerator(asset: asset)
         
-//        let thumbnail = assetGenerator.copyCGImage(at: CMTimeMake(1, 1), actualTime: nil)
-        
         let assetGeneratorCompletionHandler: AVAssetImageGeneratorCompletionHandler = {(requestedTime, image, actualTime, result, error ) -> Void in
             
             if let img = image {
@@ -76,9 +74,9 @@ class CameraDetailViewController: UIViewController {
             }
         }
         
-        let tVal = NSValue(time: CMTimeMultiplyByFloat64(asset.duration, 0.5))
+        let thumbnailTime = NSValue(time: CMTimeMultiplyByFloat64(asset.duration, 0.5))
         
-        assetGenerator.generateCGImagesAsynchronously(forTimes: [tVal], completionHandler: assetGeneratorCompletionHandler);
+        assetGenerator.generateCGImagesAsynchronously(forTimes: [thumbnailTime], completionHandler: assetGeneratorCompletionHandler);
     }
 
     /*
