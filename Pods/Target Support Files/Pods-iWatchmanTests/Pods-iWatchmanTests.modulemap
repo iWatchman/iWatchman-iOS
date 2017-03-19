@@ -1,0 +1,6 @@
+framework module Pods_iWatchmanTests {
+  umbrella header "Pods-iWatchmanTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

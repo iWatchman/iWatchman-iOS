@@ -8,6 +8,7 @@
 
 import RealmSwift
 import Foundation
+import Alamofire
 
 class DataManager {
     
@@ -19,35 +20,27 @@ class DataManager {
     
 //    let rootURL: URL = URL(string: "https://test-project-156600.appspot.com/api/registerDevice/")!
     
-    let rootURL = URL(string: "http://localhost:3000/")!
+    let rootURL = URL(string: "http://a1e64b24.ngrok.io/")!
     
     // MARK: Pull to refresh
     
     func reloadData(completionHandler: @escaping () -> Void) {
         
-        let url = URL(string: "http://localhost:3000/events")
+        let url = URL(string: "http://a1e64b24.ngrok.io/events")
         
-        let task = URLSession.shared.dataTask(with: url!) { data, response, error in
-            guard error == nil else {
-                print(error!)
-                return
-            }
-            guard let data = data else {
-                print("Data is empty")
-                return
-            }
+        Alamofire.request(url!).responseJSON(completionHandler: {
+            response in
             
-            let json = try! JSONSerialization.jsonObject(with: data, options: []) as? [Dictionary<String, Any>]
-            
-            
-            // create dateFormatter with UTC time format
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.mmm'Z'"
-            dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
-            
-            var allEvents: [Event] = Array<Event>()
-            
-            if let events = json {
+            if let events = response.result.value as? [Dictionary<String, Any>] {
+                print(events)
+                
+                // create dateFormatter with UTC time format
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.mmm'Z'"
+                dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+                
+                var allEvents: [Event] = Array<Event>()
+                
                 for event in events {
                     let eventId = String(event["id"] as! Int)
                     let eventDate = dateFormatter.date(from: event["date"] as! String)!
@@ -56,39 +49,28 @@ class DataManager {
                     
                     allEvents.append(newEvent)
                 }
-            }
-            
-            DispatchQueue.main.async { [weak self]
-                () -> Void in
-                try! self?.realm.write {
-                    self?.realm.add(allEvents, update: true)
+                
+                DispatchQueue.main.async { [weak self]
+                    () -> Void in
+                    try! self?.realm.write {
+                        self?.realm.add(allEvents, update: true)
+                    }
+                    completionHandler()
                 }
-                completionHandler()
+            } else {
+                print("Error fetching events from server")
             }
-            
-        }
-        
-        task.resume()
+        })
     }
     
     // MARK: Push notifications
     
     func registerDeviceTokenForPushNotifications(deviceToken: String) {
-        let requestBody = "{\"deviceToken\": \(deviceToken)}"
-        var request = URLRequest(url: rootURL)
-        request.httpMethod = "POST"
-        request.httpBody = requestBody.data(using: String.Encoding.utf8)
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let parameters: Parameters = ["deviceToken": deviceToken]
         
-        let task = URLSession.shared.uploadTask(with: request, from: nil, completionHandler: { (data, response, error) in
-            
-            if let err = error {
-                print(err)
-            } else {
-                print(response)
-            }
-            })
-        task.resume()
+        Alamofire.request(rootURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).response(completionHandler: { response in
+            print(response)
+        })
     }
         
         

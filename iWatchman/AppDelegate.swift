@@ -29,13 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        print(deviceTokenString)
         DataManager.sharedInstance.registerDeviceTokenForPushNotifications(deviceToken: deviceTokenString)
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("i am not available in simulator \(error)")
-        
-        DataManager.sharedInstance.registerDeviceTokenForPushNotifications(deviceToken: "canYouReadThis")
+//        DataManager.sharedInstance.registerDeviceTokenForPushNotifications(deviceToken: "canYouReadThis")
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
