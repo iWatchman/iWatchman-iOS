@@ -23,6 +23,25 @@ class AllCameraEventsViewController: UITableViewController {
                 realm.add(Event(remoteID: "2", eventDate: NSDate()))
             }
         }
+        
+        // 
+        let refreshControl = UIRefreshControl()
+        let title = NSLocalizedString("Pull To Refresh", comment: "Pull to refresh")
+        refreshControl.attributedTitle = NSAttributedString(string: title)
+        refreshControl.addTarget(self,
+                                 action: #selector(refreshOptions(sender:)),
+                                 for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        
+        
+    }
+    
+    @objc private func refreshOptions(sender: UIRefreshControl) {
+        DataManager.sharedInstance.reloadData { [weak self]
+            () -> Void in
+            self?.tableView.reloadData()
+            sender.endRefreshing()
+        }
     }
     
     override func didReceiveMemoryWarning() {

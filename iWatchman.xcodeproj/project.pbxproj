@@ -24,6 +24,7 @@
 		90F9A29B1E7DC182005C5446 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90F9A29A1E7DC182005C5446 /* RealmSwift.framework */; };
 		90F9A29C1E7DC182005C5446 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90F9A29A1E7DC182005C5446 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		90F9A29E1E7DC6D5005C5446 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F9A29D1E7DC6D5005C5446 /* Event.swift */; };
+		90F9A2A01E7E2B5B005C5446 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F9A29F1E7E2B5B005C5446 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		90F9A2961E7DC173005C5446 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		90F9A29A1E7DC182005C5446 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		90F9A29D1E7DC6D5005C5446 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		90F9A29F1E7E2B5B005C5446 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				906B93C61E590B1000E2D1E2 /* AppDelegate.swift */,
 				906B93C81E590B1000E2D1E2 /* AllCameraEventsViewController.swift */,
 				90F9A29D1E7DC6D5005C5446 /* Event.swift */,
+				90F9A29F1E7E2B5B005C5446 /* DataManager.swift */,
 				906B94321E5A0EAF00E2D1E2 /* CameraEventCell.swift */,
 				906B93CA1E590B1000E2D1E2 /* Main.storyboard */,
 				906B94701E5AB3B600E2D1E2 /* CameraEventDetailViewController.swift */,
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				906B94711E5AB3B600E2D1E2 /* CameraEventDetailViewController.swift in Sources */,
+				90F9A2A01E7E2B5B005C5446 /* DataManager.swift in Sources */,
 				906B94331E5A0EAF00E2D1E2 /* CameraEventCell.swift in Sources */,
 				906B93C91E590B1000E2D1E2 /* AllCameraEventsViewController.swift in Sources */,
 				906B93C71E590B1000E2D1E2 /* AppDelegate.swift in Sources */,
@@ -479,6 +483,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = iWatchman/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.tejasd.iWatchman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -496,6 +501,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = iWatchman/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.tejasd.iWatchman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
