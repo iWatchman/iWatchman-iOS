@@ -17,6 +17,9 @@ class DataManager {
     
     let realm = try! Realm()
     
+//    let rootURL: URL = URL(string: "https://test-project-156600.appspot.com/api/registerDevice/")!
+    
+    let rootURL = URL(string: "http://localhost:3000/")!
     
     // MARK: Pull to refresh
     
@@ -65,6 +68,26 @@ class DataManager {
             
         }
         
+        task.resume()
+    }
+    
+    // MARK: Push notifications
+    
+    func registerDeviceTokenForPushNotifications(deviceToken: String) {
+        let requestBody = "{\"deviceToken\": \(deviceToken)}"
+        var request = URLRequest(url: rootURL)
+        request.httpMethod = "POST"
+        request.httpBody = requestBody.data(using: String.Encoding.utf8)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = URLSession.shared.uploadTask(with: request, from: nil, completionHandler: { (data, response, error) in
+            
+            if let err = error {
+                print(err)
+            } else {
+                print(response)
+            }
+            })
         task.resume()
     }
         
