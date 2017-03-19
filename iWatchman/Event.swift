@@ -11,8 +11,16 @@ import RealmSwift
 
 class Event: Object {
     dynamic var remoteID = ""
-    dynamic var eventDate = NSDate() {
-        didSet {
+    dynamic var backingEventDate = NSDate()
+    
+    var eventDate: NSDate {
+        get {
+            return backingEventDate
+        }
+        
+        set {
+            backingEventDate = newValue
+            
             let dateFormatter = DateFormatter()
             dateFormatter.timeStyle = .none
             dateFormatter.dateStyle = .medium

@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EkI-7S-v3a" id="BeT-Ff-szN">
-                                    <frame key="frameInset" width="342" height="43.5"/>
+                                    <frame key="frameInset" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CxZ-ww-qkR">
@@ -44,8 +44,8 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="All Camera Events" id="sKP-YP-mMI">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" style="plain" id="g3c-SA-AFs">
+                    <navigationItem key="navigationItem" title="Alerts" id="sKP-YP-mMI">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="organize" id="g3c-SA-AFs">
                             <connections>
                                 <segue destination="OAE-jp-cFR" kind="show" id="vib-se-fuF"/>
                             </connections>

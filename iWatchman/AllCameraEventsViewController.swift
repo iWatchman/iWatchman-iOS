@@ -12,6 +12,13 @@ import RealmSwift
 class AllCameraEventsViewController: UITableViewController {
     
     let events = try! Realm().objects(Event.self).sorted(by: ["eventDate"])
+    var sectionNames: [String] {
+        return Set(events.value(forKeyPath: "eventDay") as! [String]).sorted()
+    }
+    
+    let dateFormatter = DateFormatter()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,19 +59,28 @@ class AllCameraEventsViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        return sectionNames.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionNames[section]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return events.count
+        return events.filter("eventDay == %@", sectionNames[section]).count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "testCell", for: indexPath) as! CameraEventCell
-        cell.cameraName = String(describing: events[indexPath.row].eventDate)
+        
+        let currDate = events.filter("eventDay == %@", sectionNames[indexPath.section])[indexPath.row].eventDate
+        
+        dateFormatter.timeStyle = .medium
+        dateFormatter.dateStyle = .none
+        
+        cell.cameraName = dateFormatter.string(from: currDate as Date)
 
         return cell
     }
