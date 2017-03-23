@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import AlamofireImage
+import Alamofire
 
 class CameraEventCollectionViewCell: UICollectionViewCell {
     
@@ -72,12 +74,20 @@ class CameraEventCollectionViewCell: UICollectionViewCell {
         
         cameraImageView.image = cameraImageView.image!.withRenderingMode(.alwaysTemplate)
         cameraImageView.tintColor = UIColor.white
+        
+        let thumbnailURL = "http://104.196.62.42:8080/api/getVideoThumbnail/\(event.remoteID)"
+        Alamofire.request(thumbnailURL).responseImage { response in
+            
+            if let image = response.result.value {
+                self.thumbnailImageView.image = image
+            }
+        }
     }
     
     func updateThumbnail(event: Event) {
-        if let thumbnailImage = event.eventThumbnail {
-            thumbnailImageView.image = UIImage(data: thumbnailImage as Data)
-        }
+//        if let thumbnailImage = event.eventThumbnail {
+//            thumbnailImageView.image = UIImage(data: thumbnailImage as Data)
+//        }
     }
     
     func updateCellForNotification(notification: NSNotification) {

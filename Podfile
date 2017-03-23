@@ -7,6 +7,7 @@ target 'iWatchman' do
 
   # Pods for iWatchman
   pod 'Alamofire', '~> 4.4'
+  pod 'AlamofireImage', '~> 3.1'
   pod 'RealmSwift'
 
   target 'iWatchmanTests' do
