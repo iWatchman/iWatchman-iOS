@@ -87,7 +87,7 @@ class AllCameraEventsCollectionViewController: UICollectionViewController {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: self.view.frame.size.width - 20, height: 250)
+        return CGSize(width: self.view.frame.size.width - 20, height: 265)
     }
     
     // MARK: - Segues
