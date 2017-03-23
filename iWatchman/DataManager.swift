@@ -45,7 +45,7 @@ class DataManager {
                     allEvents.append(newEvent)
                 }
                 
-                
+                self.downloadThumbnails(eventIds: allEvents.map {$0.remoteID})
                 
                 DispatchQueue.main.async { [weak self]
                     () -> Void in
@@ -72,14 +72,19 @@ class DataManager {
         })
     }
     
-    func downloadThumbnails(events: [Event]) {
-        for event in events {
-            let eventThumbnailURL = URL(string: "getVideoThumbnail/\(event.remoteID)", relativeTo: rootURL)
+    func downloadThumbnails(eventIds: [String]) {
+        for eventId in eventIds {
+            let eventThumbnailURL = URL(string: "getVideoThumbnail/\(eventId)", relativeTo: rootURL)
             Alamofire.request(eventThumbnailURL!).validate().response { response in
                 if let error = response.error {
                     print(error)
                 } else {
-                    event.eventThumbnail = response.data! as NSData
+                    let eventThumbnail = response.data! as NSData
+                    let event = Event()
+                    event.remoteID = eventId
+                    event.eventThumbnail = eventThumbnail
+                    
+                    NotificationCenter.default.post(name: NSNotification.Name.init("DOWNLOADED_THUMBNAIL"), object: self, userInfo: ["event": event])
                     
                     DispatchQueue.main.async { [weak self]
                         () -> Void in
@@ -88,7 +93,6 @@ class DataManager {
                         }
                     }
                     
-                    // TODO: Fire a notification saying the image is now available
                     // TODO: Write to file and store url of file
                 }
             }

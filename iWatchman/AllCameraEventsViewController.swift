@@ -22,7 +22,7 @@ class AllCameraEventsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(showEventForNotification(notification:)), name: NSNotification.Name.init("SHOW_EVENT_DETAIL"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(showEventForNotification(notification:)), name: NSNotification.Name.init("SHOW_EVENT_DETAIL"), object: nil)
         
         let realm = try! Realm()
         if realm.isEmpty {

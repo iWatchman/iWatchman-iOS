@@ -13,9 +13,8 @@ class AllCameraEventsCollectionViewController: UICollectionViewController {
 
 
     let events = try! Realm().objects(Event.self).sorted(by: ["eventDate"])
-    var sectionNames: [String] {
-        return Set(events.value(forKeyPath: "eventDay") as! [String]).sorted()
-    }
+    
+    var selectedIndexPath: IndexPath?
     
     let reuseIdentifier = "CameraEventCell"
     
@@ -24,12 +23,14 @@ class AllCameraEventsCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(showEventForNotification(notification:)), name: NSNotification.Name.init("SHOW_EVENT_DETAIL"), object: nil)
+        
         let realm = try! Realm()
         if realm.isEmpty {
             try! realm.write {
-                realm.add(Event(remoteID: "1", eventDate: NSDate()))
-                realm.add(Event(remoteID: "2", eventDate: NSDate()))
-                realm.add(Event(remoteID: "3", eventDate: NSDate()))
+                realm.add(Event(remoteID: "1", eventDateString: ""))
+                realm.add(Event(remoteID: "2", eventDateString: ""))
+                realm.add(Event(remoteID: "3", eventDateString: ""))
             }
         }
         
@@ -68,22 +69,23 @@ class AllCameraEventsCollectionViewController: UICollectionViewController {
     // MARK: - UICollectionViewDataSource data source
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sectionNames.count
+        return 1
     }
-    
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return sectionNames[section]
-//    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return events.filter("eventDay == %@", sectionNames[section]).count
+        return events.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedIndexPath = indexPath
+        performSegue(withIdentifier: "showCameraDetail", sender: nil)
     }
     
     override func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CameraEventCollectionViewCell
-        //cell.configureCell(appointment)
+        cell.configureCell(events[indexPath.row])
         return cell
     }
     
@@ -94,12 +96,19 @@ class AllCameraEventsCollectionViewController: UICollectionViewController {
     
     // MARK: - Segues
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showCameraDetail" {
-//            if let indexPath = self.collectionView.indexPathForSelectedRow {
-//                let controller = segue.destination as! CameraEventDetailViewController
-//                controller.eventDate = events[indexPath.row].eventDate as Date
-//            }
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCameraDetail" {
+            if sender is Event {
+                let controller = segue.destination as! CameraEventDetailViewController
+                controller.event = sender as? Event
+            } else if let indexPath = selectedIndexPath {
+                let controller = segue.destination as! CameraEventDetailViewController
+                controller.event = events[indexPath.row]
+            }
+        }
+    }
+    
+    func showEventForNotification(notification: NSNotification) {
+        performSegue(withIdentifier: "showCameraDetail", sender: notification.object)
+    }
 }

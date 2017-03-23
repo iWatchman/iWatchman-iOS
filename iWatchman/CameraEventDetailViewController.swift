@@ -64,10 +64,11 @@ class CameraEventDetailViewController: UIViewController {
         } else {
             DataManager.sharedInstance.downloadThumbnail(event: event!, completionHandler: {(thumbnailData) in
                 
-                let thumbnail = UIImage(data: thumbnailData as! Data)
-                
-                DispatchQueue.main.async {
-                    self.videoThumbnailView.image = thumbnail
+                if let imageData = thumbnailData {
+                    let thumbnail = UIImage(data: imageData as Data)
+                    DispatchQueue.main.async {
+                        self.videoThumbnailView.image = thumbnail
+                    }
                 }
             })
         }
