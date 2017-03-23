@@ -12,22 +12,23 @@ import RealmSwift
 class AllCameraEventsViewController: UITableViewController {
     
     let events = try! Realm().objects(Event.self).sorted(by: ["eventDate"])
+    
     var sectionNames: [String] {
         return Set(events.value(forKeyPath: "eventDay") as! [String]).sorted()
     }
     
     let dateFormatter = DateFormatter()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showEventForNotification(notification:)), name: NSNotification.Name.init("SHOW_EVENT_DETAIL"), object: nil)
         
         let realm = try! Realm()
         if realm.isEmpty {
             try! realm.write {
-                realm.add(Event(remoteID: "1", eventDate: NSDate()))
-                realm.add(Event(remoteID: "2", eventDate: NSDate()))
+                realm.add(Event(remoteID: "1", eventDateString: ""))
+                realm.add(Event(remoteID: "2", eventDateString: ""))
             }
         }
         
@@ -89,14 +90,18 @@ class AllCameraEventsViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCameraDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
+            if sender is Event {
                 let controller = segue.destination as! CameraEventDetailViewController
-                controller.event = events[indexPath.row]
-                controller.eventDate = events[indexPath.row].eventDate as Date
-                controller.videoID = events.filter("eventDay == %@", sectionNames[indexPath.section])[indexPath.row].remoteID
-                controller.eventThumbnail = events[indexPath.row].eventThumbnail
+                controller.event = sender as? Event
+            } else if let indexPath = self.tableView.indexPathForSelectedRow {
+                let controller = segue.destination as! CameraEventDetailViewController
+                controller.event = events.filter("eventDay == %@", sectionNames[indexPath.section])[indexPath.row]
             }
         }
+    }
+    
+    func showEventForNotification(notification: NSNotification) {
+        performSegue(withIdentifier: "showCameraDetail", sender: notification.object)
     }
 
     

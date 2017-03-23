@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         application.registerForRemoteNotifications()
         
+        if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] {
+            handleRemoteNotification(userInfo: remoteNotification as! [AnyHashable : Any])
+        }
+        
         return true
     }
     
@@ -34,6 +39,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        handleRemoteNotification(userInfo: userInfo)
+        
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+    
+    func handleRemoteNotification(userInfo: [AnyHashable:Any]) {
+        let remoteID = String(userInfo["id"] as! Int)
+        let dateString = userInfo["date"] as! String
+        
+        let newEvent = Event(remoteID: remoteID, eventDateString: dateString)
+        
+        DispatchQueue.main.async {
+            () -> Void in
+            let realm = try! Realm()
+            try! realm.write {
+                realm.add(newEvent, update: true)
+            }
+        }
+    
+        NotificationCenter.default.post(name: NSNotification.Name.init("SHOW_EVENT_DETAIL"), object: newEvent)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

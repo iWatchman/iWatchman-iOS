@@ -18,18 +18,21 @@ class CameraEventDetailViewController: UIViewController {
     @IBOutlet weak var videoThumbnailView: UIImageView!
     
     let videoURLRoot: NSURL = NSURL(string: "http://104.196.62.42:8080/api/getVideoClip/")!
-    var videoID: String = ""
     var videoURL: NSURL? = nil
     
     let myDateFormatter = DateFormatter()
     
     var eventDate : Date = Date()
     var eventThumbnail: NSData?
-    var event: Event?
+    var event: Event? {
+        didSet {
+            eventDate = event?.eventDate as! Date
+            eventThumbnail = event?.eventThumbnail
+        }
+    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        videoURL = NSURL(string: videoID, relativeTo: videoURLRoot as URL)
+    override func viewWillAppear(_ animated: Bool) {
+        videoURL = NSURL(string: (event?.remoteID)!, relativeTo: videoURLRoot as URL)
         self.setVideoThumbnail()
         
         // Set Date and Time

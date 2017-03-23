@@ -32,24 +32,15 @@ class DataManager {
             if let events = response.result.value as? [Dictionary<String, Any>] {
                 print(events)
                 
-                // create dateFormatter with UTC time format
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-                dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+                
                 
                 var allEvents: [Event] = Array<Event>()
                 
                 for event in events {
                     let eventId = String(event["id"] as! Int)
-                    let eventDate: Date
+                    let eventDateString = event["date"] as! String
                     
-                    if let newDate = dateFormatter.date(from: event["date"] as! String) {
-                        eventDate = newDate
-                    } else {
-                        eventDate = Date()
-                    }
-                    
-                    let newEvent = Event(remoteID: eventId, eventDate: eventDate as NSDate)
+                    let newEvent = Event(remoteID: eventId, eventDateString: eventDateString)
                     
                     allEvents.append(newEvent)
                 }
