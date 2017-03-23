@@ -91,7 +91,10 @@ class AllCameraEventsViewController: UITableViewController {
         if segue.identifier == "showCameraDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let controller = segue.destination as! CameraEventDetailViewController
+                controller.event = events[indexPath.row]
                 controller.eventDate = events[indexPath.row].eventDate as Date
+                controller.videoID = events.filter("eventDay == %@", sectionNames[indexPath.section])[indexPath.row].remoteID
+                controller.eventThumbnail = events[indexPath.row].eventThumbnail
             }
         }
     }

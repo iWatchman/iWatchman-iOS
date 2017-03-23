@@ -49,6 +49,7 @@
 		65CF79D05BC533006EC4B288 /* Pods_iWatchmanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iWatchmanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE432471FEE1EA30E74C6BD /* Pods-iWatchmanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWatchmanUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iWatchmanUITests/Pods-iWatchmanUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8B85626851EDA323CED6EAFE /* Pods-iWatchman.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWatchman.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iWatchman/Pods-iWatchman.debug.xcconfig"; sourceTree = "<group>"; };
+		90250E881E83834F00115514 /* iWatchman.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iWatchman.entitlements; sourceTree = "<group>"; };
 		906B93C31E590B1000E2D1E2 /* iWatchman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWatchman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		906B93C61E590B1000E2D1E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		906B93C81E590B1000E2D1E2 /* AllCameraEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCameraEventsViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +129,7 @@
 		906B93C51E590B1000E2D1E2 /* iWatchman */ = {
 			isa = PBXGroup;
 			children = (
+				90250E881E83834F00115514 /* iWatchman.entitlements */,
 				906B93C61E590B1000E2D1E2 /* AppDelegate.swift */,
 				906B93C81E590B1000E2D1E2 /* AllCameraEventsViewController.swift */,
 				90F9A29D1E7DC6D5005C5446 /* Event.swift */,
@@ -273,6 +275,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = LLVD2YCLN9;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					906B93D61E590B1000E2D1E2 = {
 						CreatedOnToolsVersion = 8.0;
@@ -641,6 +648,7 @@
 			baseConfigurationReference = 8B85626851EDA323CED6EAFE /* Pods-iWatchman.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iWatchman/iWatchman.entitlements;
 				DEVELOPMENT_TEAM = LLVD2YCLN9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -660,6 +668,7 @@
 			baseConfigurationReference = B6310036111FA58F46B09AB1 /* Pods-iWatchman.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iWatchman/iWatchman.entitlements;
 				DEVELOPMENT_TEAM = LLVD2YCLN9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

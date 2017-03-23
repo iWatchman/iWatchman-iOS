@@ -17,22 +17,20 @@ class CameraEventDetailViewController: UIViewController {
     
     @IBOutlet weak var videoThumbnailView: UIImageView!
     
-    let videoURLRoot: NSURL = NSURL(string: "https://test-project-156600.appspot.com/api/getVideoClip/")!
-    var videoID = "1"
+    let videoURLRoot: NSURL = NSURL(string: "http://104.196.62.42:8080/api/getVideoClip/")!
+    var videoID: String = ""
     var videoURL: NSURL? = nil
     
     let myDateFormatter = DateFormatter()
     
     var eventDate : Date = Date()
+    var eventThumbnail: NSData?
+    var event: Event?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         videoURL = NSURL(string: videoID, relativeTo: videoURLRoot as URL)
-        
-        DispatchQueue.global(qos: .background).async { [weak self]
-            () -> Void in
-            self?.setVideoThumbnail()
-        }
+        self.setVideoThumbnail()
         
         // Set Date and Time
         myDateFormatter.dateStyle = .medium
@@ -55,26 +53,23 @@ class CameraEventDetailViewController: UIViewController {
     }
     
     func setVideoThumbnail() {
-        let asset = AVAsset(url: videoURL as! URL)
-        
-        let assetGenerator = AVAssetImageGenerator(asset: asset)
-        
-        let assetGeneratorCompletionHandler: AVAssetImageGeneratorCompletionHandler = {(requestedTime, image, actualTime, result, error ) -> Void in
-            
-            if let img = image {
-                
-                DispatchQueue.main.async { [weak self]
-                    () -> Void in
-                    self?.videoThumbnailView.image = UIImage(cgImage: img);
-                }
-            } else {
-                print("Failed to generate thumbnail.")
+        if let thumbnailData = eventThumbnail {
+            let image = UIImage(data: thumbnailData as Data)!
+            DispatchQueue.main.async {
+                self.videoThumbnailView.image = image
             }
+        } else {
+            DataManager.sharedInstance.downloadThumbnail(event: event!, completionHandler: {(thumbnailData) in
+                
+                let thumbnail = UIImage(data: thumbnailData as! Data)
+                
+                DispatchQueue.main.async {
+                    self.videoThumbnailView.image = thumbnail
+                }
+            })
         }
         
-        let thumbnailTime = NSValue(time: CMTimeMultiplyByFloat64(asset.duration, 0.5))
         
-        assetGenerator.generateCGImagesAsynchronously(forTimes: [thumbnailTime], completionHandler: assetGeneratorCompletionHandler);
     }
 
     /*

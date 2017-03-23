@@ -33,6 +33,8 @@ class Event: Object {
     // Useful for splitting into sections in a table view
     dynamic var eventDay = ""
     
+    dynamic var eventThumbnail: NSData?
+    
     convenience init(remoteID: String, eventDate: NSDate) {
         self.init()
         self.remoteID = remoteID
