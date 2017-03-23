@@ -664,6 +664,7 @@
 			baseConfigurationReference = 8B85626851EDA323CED6EAFE /* Pods-iWatchman.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = iWatchman/iWatchman.entitlements;
 				DEVELOPMENT_TEAM = LLVD2YCLN9;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -684,6 +685,7 @@
 			baseConfigurationReference = B6310036111FA58F46B09AB1 /* Pods-iWatchman.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = iWatchman/iWatchman.entitlements;
 				DEVELOPMENT_TEAM = LLVD2YCLN9;
 				FRAMEWORK_SEARCH_PATHS = (

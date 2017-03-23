@@ -27,11 +27,7 @@ class AllCameraEventsCollectionViewController: UICollectionViewController {
         
         let realm = try! Realm()
         if realm.isEmpty {
-            try! realm.write {
-                realm.add(Event(remoteID: "1", eventDateString: ""))
-                realm.add(Event(remoteID: "2", eventDateString: ""))
-                realm.add(Event(remoteID: "3", eventDateString: ""))
-            }
+            refreshOptions(sender: nil)
         }
         
         //
@@ -53,11 +49,11 @@ class AllCameraEventsCollectionViewController: UICollectionViewController {
         self.collectionView?.register(UINib(nibName: "SectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "sectionHeaderView")
     }
     
-    @objc private func refreshOptions(sender: UIRefreshControl) {
+    @objc private func refreshOptions(sender: UIRefreshControl?) {
         DataManager.sharedInstance.reloadData { [weak self]
             () -> Void in
             self?.collectionView?.reloadData()
-            sender.endRefreshing()
+            sender?.endRefreshing()
         }
     }
     

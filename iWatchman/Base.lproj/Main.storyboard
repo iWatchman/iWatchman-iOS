@@ -10,56 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--AllCameraViewController-->
-        <scene sceneID="KJq-Wr-l9j">
-            <objects>
-                <tableViewController title="AllCameraViewController" id="WZ9-WG-gaD" customClass="AllCameraEventsViewController" customModule="iWatchman" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="amy-77-LcN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="testCell" id="EkI-7S-v3a" customClass="CameraEventCell" customModule="iWatchman" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EkI-7S-v3a" id="BeT-Ff-szN">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CxZ-ww-qkR">
-                                            <rect key="frame" x="8" y="11" width="334" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="cellNameLabel" destination="CxZ-ww-qkR" id="kr4-Cw-KPq"/>
-                                    <segue destination="d8M-gV-Y7X" kind="push" identifier="showCameraDetail2" id="pIv-R3-Zv4"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="WZ9-WG-gaD" id="7Sb-qn-cWO"/>
-                            <outlet property="delegate" destination="WZ9-WG-gaD" id="4FF-ux-Wbr"/>
-                        </connections>
-                    </tableView>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Alerts" id="sKP-YP-mMI">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="organize" id="g3c-SA-AFs">
-                            <connections>
-                                <segue destination="OAE-jp-cFR" kind="show" id="vib-se-fuF"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GI4-Tv-0LR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="381.60000000000002" y="32.833583208395808"/>
-        </scene>
         <!--Camera Event Detail View Controller-->
         <scene sceneID="2X8-Gm-iYT">
             <objects>
@@ -151,7 +101,7 @@
         <scene sceneID="8t6-6Y-eLm">
             <objects>
                 <collectionViewController id="cXP-h6-JUg" customClass="AllCameraEventsCollectionViewController" customModule="iWatchman" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="NtF-da-9C2">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="NtF-da-9C2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -179,7 +129,13 @@
                             <outlet property="delegate" destination="cXP-h6-JUg" id="xdP-sE-uVr"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="X8s-R9-01q"/>
+                    <navigationItem key="navigationItem" id="X8s-R9-01q">
+                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="6B5-S2-CEY">
+                            <connections>
+                                <segue destination="OAE-jp-cFR" kind="show" id="fPR-Wl-1YZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTb-hs-AAu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,22 +161,6 @@
             <point key="canvasLocation" x="1320.8" y="746.17691154422789"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="pzG-PE-4Lv">
-            <objects>
-                <navigationController id="EIX-yc-Cuf" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PK6-8w-nfA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="WZ9-WG-gaD" kind="relationship" relationship="rootViewController" id="OkH-04-MVR"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sYz-S3-gX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-489" y="33"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="tQv-Re-OtM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="020-9h-dVR" sceneMemberID="viewController">
@@ -243,7 +183,4 @@
         <image name="play-icon" width="50" height="62"/>
         <image name="play-icon-highlighted" width="51" height="62"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="RgD-5j-CZl"/>
-    </inferredMetricsTieBreakers>
 </document>
