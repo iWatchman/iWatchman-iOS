@@ -33,10 +33,22 @@ class Event: Object {
     // Useful for splitting into sections in a table view
     dynamic var eventDay = ""
     
-    convenience init(remoteID: String, eventDate: NSDate) {
+    dynamic var eventThumbnail: NSData?
+    
+    convenience init(remoteID: String, eventDateString: String) {
         self.init()
+        
+        // create dateFormatter with UTC time format
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+        
+        if let newDate = dateFormatter.date(from: eventDateString) {
+            eventDate = newDate as NSDate
+        } else {
+            eventDate = NSDate()
+        }
         self.remoteID = remoteID
-        self.eventDate = eventDate
     }
     
     override static func primaryKey() -> String? {
