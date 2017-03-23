@@ -55,7 +55,18 @@ class CameraEventCollectionViewCell: UICollectionViewCell {
         //cameraNameLabel.text = event.cameraName
         //thumbnailImageView.image =
         
-        colorView.backgroundColor = try! UIColor.init(netHex: 0x239B59)
+        
+        switch event.confidence {
+            case 85..<90:
+                colorView.backgroundColor = try! UIColor.init(netHex: 0xff9900)
+            case 90..<95:
+                colorView.backgroundColor = try! UIColor.init(netHex: 0xff471a)
+            case 95...100:
+                colorView.backgroundColor = try! UIColor.init(netHex: 0xb30000)
+            default:
+                colorView.backgroundColor = try! UIColor.init(netHex: 0xff9900)
+        }
+        
         calendarImageView.image = calendarImageView.image!.withRenderingMode(.alwaysTemplate)
         calendarImageView.tintColor = UIColor.white
         

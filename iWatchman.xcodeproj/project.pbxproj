@@ -22,9 +22,6 @@
 		906B93E71E590B1000E2D1E2 /* iWatchmanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B93E61E590B1000E2D1E2 /* iWatchmanUITests.swift */; };
 		906B94331E5A0EAF00E2D1E2 /* CameraEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B94321E5A0EAF00E2D1E2 /* CameraEventCell.swift */; };
 		906B94711E5AB3B600E2D1E2 /* CameraEventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B94701E5AB3B600E2D1E2 /* CameraEventDetailViewController.swift */; };
-		906B94751E5ABB4D00E2D1E2 /* Fight_OneManDown.mpg in Resources */ = {isa = PBXBuildFile; fileRef = 906B94741E5ABB4D00E2D1E2 /* Fight_OneManDown.mpg */; };
-		906B94781E5AC0BD00E2D1E2 /* BC9ry2ZoYks.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 906B94771E5AC0BD00E2D1E2 /* BC9ry2ZoYks.mp4 */; };
-		906B947A1E5E2A0100E2D1E2 /* X1qIijvAk2Q.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 906B94791E5E2A0100E2D1E2 /* X1qIijvAk2Q.mp4 */; };
 		90F9A29E1E7DC6D5005C5446 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F9A29D1E7DC6D5005C5446 /* Event.swift */; };
 		90F9A2A01E7E2B5B005C5446 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F9A29F1E7E2B5B005C5446 /* DataManager.swift */; };
 		E5F61D04B0BB1D45D105DC05 /* Pods_iWatchmanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 966104EECE59ACE5F0CBF2D6 /* Pods_iWatchmanUITests.framework */; };
@@ -73,9 +70,6 @@
 		906B93E81E590B1000E2D1E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		906B94321E5A0EAF00E2D1E2 /* CameraEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraEventCell.swift; sourceTree = "<group>"; };
 		906B94701E5AB3B600E2D1E2 /* CameraEventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraEventDetailViewController.swift; sourceTree = "<group>"; };
-		906B94741E5ABB4D00E2D1E2 /* Fight_OneManDown.mpg */ = {isa = PBXFileReference; lastKnownFileType = video.mpeg; path = Fight_OneManDown.mpg; sourceTree = "<group>"; };
-		906B94771E5AC0BD00E2D1E2 /* BC9ry2ZoYks.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = BC9ry2ZoYks.mp4; sourceTree = "<group>"; };
-		906B94791E5E2A0100E2D1E2 /* X1qIijvAk2Q.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = X1qIijvAk2Q.mp4; sourceTree = "<group>"; };
 		90F9A29D1E7DC6D5005C5446 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		90F9A29F1E7E2B5B005C5446 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		966104EECE59ACE5F0CBF2D6 /* Pods_iWatchmanUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iWatchmanUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,7 +144,6 @@
 				906B93CA1E590B1000E2D1E2 /* Main.storyboard */,
 				906B94701E5AB3B600E2D1E2 /* CameraEventDetailViewController.swift */,
 				906B93CD1E590B1000E2D1E2 /* Assets.xcassets */,
-				906B94761E5ABD2600E2D1E2 /* Videos */,
 				906B93CF1E590B1000E2D1E2 /* LaunchScreen.storyboard */,
 				906B93D21E590B1000E2D1E2 /* Info.plist */,
 			);
@@ -173,16 +166,6 @@
 				906B93E81E590B1000E2D1E2 /* Info.plist */,
 			);
 			path = iWatchmanUITests;
-			sourceTree = "<group>";
-		};
-		906B94761E5ABD2600E2D1E2 /* Videos */ = {
-			isa = PBXGroup;
-			children = (
-				906B94791E5E2A0100E2D1E2 /* X1qIijvAk2Q.mp4 */,
-				906B94741E5ABB4D00E2D1E2 /* Fight_OneManDown.mpg */,
-				906B94771E5AC0BD00E2D1E2 /* BC9ry2ZoYks.mp4 */,
-			);
-			name = Videos;
 			sourceTree = "<group>";
 		};
 		9EC05BB6A372EABD900C7309 /* Pods */ = {
@@ -333,11 +316,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				906B93D11E590B1000E2D1E2 /* LaunchScreen.storyboard in Resources */,
-				906B94781E5AC0BD00E2D1E2 /* BC9ry2ZoYks.mp4 in Resources */,
-				906B94751E5ABB4D00E2D1E2 /* Fight_OneManDown.mpg in Resources */,
 				906B93CE1E590B1000E2D1E2 /* Assets.xcassets in Resources */,
 				906B93CC1E590B1000E2D1E2 /* Main.storyboard in Resources */,
-				906B947A1E5E2A0100E2D1E2 /* X1qIijvAk2Q.mp4 in Resources */,
 				90250E8F1E83BBB900115514 /* CameraEventCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

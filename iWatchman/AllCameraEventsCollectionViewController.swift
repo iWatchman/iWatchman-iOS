@@ -12,7 +12,7 @@ import RealmSwift
 class AllCameraEventsCollectionViewController: UICollectionViewController {
 
 
-    let events = try! Realm().objects(Event.self).sorted(by: ["eventDate"])
+    let events = try! Realm().objects(Event.self).sorted(byKeyPath: "eventDate", ascending: false)
     
     var selectedIndexPath: IndexPath?
     
@@ -24,11 +24,9 @@ class AllCameraEventsCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(showEventForNotification(notification:)), name: NSNotification.Name.init("SHOW_EVENT_DETAIL"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadCollectionViewForNotification(notification:)), name: NSNotification.Name.init("RELOAD_COLLECTION_VIEW"), object: nil)
         
-        let realm = try! Realm()
-        if realm.isEmpty {
-            refreshOptions(sender: nil)
-        }
+        refreshOptions(sender: nil)
         
         //
         let refreshControl = UIRefreshControl()
@@ -47,6 +45,10 @@ class AllCameraEventsCollectionViewController: UICollectionViewController {
         
         self.collectionView?.register(UINib(nibName: "CameraEventCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         self.collectionView?.register(UINib(nibName: "SectionHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "sectionHeaderView")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        refreshOptions(sender: nil)
     }
     
     @objc private func refreshOptions(sender: UIRefreshControl?) {
@@ -106,5 +108,9 @@ class AllCameraEventsCollectionViewController: UICollectionViewController {
     
     func showEventForNotification(notification: NSNotification) {
         performSegue(withIdentifier: "showCameraDetail", sender: notification.object)
+    }
+    
+    func reloadCollectionViewForNotification(notification:NSNotification) {
+        self.collectionView?.reloadData()
     }
 }

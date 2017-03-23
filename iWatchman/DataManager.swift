@@ -30,18 +30,10 @@ class DataManager {
             response in
             
             if let events = response.result.value as? [Dictionary<String, Any>] {
-                print(events)
-                
-                
-                
                 var allEvents: [Event] = Array<Event>()
                 
                 for event in events {
-                    let eventId = String(event["id"] as! Int)
-                    let eventDateString = event["date"] as! String
-                    
-                    let newEvent = Event(remoteID: eventId, eventDateString: eventDateString)
-                    
+                    let newEvent = Event(eventJSON: event)
                     allEvents.append(newEvent)
                 }
                 
@@ -50,6 +42,7 @@ class DataManager {
                 DispatchQueue.main.async { [weak self]
                     () -> Void in
                     try! self?.realm.write {
+                        self?.realm.deleteAll()
                         self?.realm.add(allEvents, update: true)
                     }
                     completionHandler()

@@ -33,6 +33,9 @@ class Event: Object {
     // Useful for splitting into sections in a table view
     dynamic var eventDay = ""
     
+    dynamic var confidence = 0
+    dynamic var accuracy = 0
+    
     dynamic var eventThumbnail: NSData?
     
     convenience init(remoteID: String, eventDateString: String) {
@@ -49,6 +52,28 @@ class Event: Object {
             eventDate = NSDate()
         }
         self.remoteID = remoteID
+    }
+    
+    convenience init(eventJSON: [AnyHashable: Any]) {
+        self.init()
+        
+        self.remoteID = String(eventJSON["id"] as! Int)
+        
+        // Extract Date
+        let eventDateString = eventJSON["date"] as! String
+        // create dateFormatter with UTC time format
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+        if let newDate = dateFormatter.date(from: eventDateString) {
+            self.eventDate = newDate as NSDate
+        } else {
+            self.eventDate = NSDate()
+        }
+        
+        // Accuracy
+        self.confidence = eventJSON["confidence"] as! Int
+        self.accuracy = eventJSON["accuracy"] as! Int
     }
     
     override static func primaryKey() -> String? {

@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             handleRemoteNotification(userInfo: remoteNotification as! [AnyHashable : Any])
         }
         
+        
+        
         return true
     }
     
@@ -53,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let dateString = userInfo["date"] as! String
         
         let newEvent = Event(remoteID: remoteID, eventDateString: dateString)
+        DataManager.sharedInstance.downloadThumbnail(event: newEvent, completionHandler: {(thumbnaukData) in})
         
         DispatchQueue.main.async {
             () -> Void in
@@ -63,6 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     
         NotificationCenter.default.post(name: NSNotification.Name.init("SHOW_EVENT_DETAIL"), object: newEvent)
+        NotificationCenter.default.post(name: NSNotification.Name.init("RELOAD_COLLECTION_VIEW"), object: nil)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -77,6 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
