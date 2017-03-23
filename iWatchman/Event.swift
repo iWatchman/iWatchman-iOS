@@ -72,8 +72,15 @@ class Event: Object {
         }
         
         // Accuracy
-        self.confidence = eventJSON["confidence"] as! Int
-        self.accuracy = eventJSON["accuracy"] as! Int
+        
+        
+//        if let confidenceValue = eventJSON["confidence"] {
+//            self.confidence = confidenceValue as! Int
+//        }
+//        
+//        if let accuracyValue = eventJSON["accuracy"] {
+//            self.accuracy = accuracyValue as! Int
+//        }
     }
     
     override static func primaryKey() -> String? {
