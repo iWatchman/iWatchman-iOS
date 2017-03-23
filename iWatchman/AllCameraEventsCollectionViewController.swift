@@ -49,6 +49,7 @@ class AllCameraEventsCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
 //        refreshOptions(sender: nil)
+        collectionView?.reloadData()
     }
     
     @objc private func refreshOptions(sender: UIRefreshControl?) {

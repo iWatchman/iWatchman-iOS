@@ -77,7 +77,7 @@ class DataManager {
                     event.remoteID = eventId
                     event.eventThumbnail = eventThumbnail
                     
-                    NotificationCenter.default.post(name: NSNotification.Name.init("DOWNLOADED_THUMBNAIL"), object: self, userInfo: ["event": event])
+//                    NotificationCenter.default.post(name: NSNotification.Name.init("DOWNLOADED_THUMBNAIL"), object: self, userInfo: ["event": event])
                     
                     DispatchQueue.main.async { [weak self]
                         () -> Void in
