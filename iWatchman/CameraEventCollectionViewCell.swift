@@ -14,6 +14,9 @@ class CameraEventCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var cameraNameLabel: UILabel!
+    @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var calendarImageView: UIImageView!
+    @IBOutlet weak var cameraImageView: UIImageView!
     
     var associatedEvent: Event?
     
@@ -50,9 +53,14 @@ class CameraEventCollectionViewCell: UICollectionViewCell {
         
         dateLabel.text = dateString
         //cameraNameLabel.text = event.cameraName
-        if let thumbnailImage = event.eventThumbnail {
-            thumbnailImageView.image = UIImage(data: thumbnailImage as Data)
-        }
+        //thumbnailImageView.image =
+        
+        colorView.backgroundColor = try! UIColor.init(netHex: 0x239B59)
+        calendarImageView.image = calendarImageView.image!.withRenderingMode(.alwaysTemplate)
+        calendarImageView.tintColor = UIColor.white
+        
+        cameraImageView.image = cameraImageView.image!.withRenderingMode(.alwaysTemplate)
+        cameraImageView.tintColor = UIColor.white
     }
     
     func updateThumbnail(event: Event) {
