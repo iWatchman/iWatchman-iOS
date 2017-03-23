@@ -14,6 +14,9 @@ class CameraEventCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var cameraNameLabel: UILabel!
+    @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var calendarImageView: UIImageView!
+    @IBOutlet weak var cameraImageView: UIImageView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -45,6 +48,13 @@ class CameraEventCollectionViewCell: UICollectionViewCell {
         dateLabel.text = dateString
         //cameraNameLabel.text = event.cameraName
         //thumbnailImageView.image =
+        
+        colorView.backgroundColor = try! UIColor.init(netHex: 0x239B59)
+        calendarImageView.image = calendarImageView.image!.withRenderingMode(.alwaysTemplate)
+        calendarImageView.tintColor = UIColor.white
+        
+        cameraImageView.image = cameraImageView.image!.withRenderingMode(.alwaysTemplate)
+        cameraImageView.tintColor = UIColor.white
     }
     
 }
