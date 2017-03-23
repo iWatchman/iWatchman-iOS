@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		00D915E40FB7D79B71310736 /* Pods_iWatchman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38A176E375109DB193BDAA4 /* Pods_iWatchman.framework */; };
 		70430501577354EF0E47A920 /* Pods_iWatchmanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CF79D05BC533006EC4B288 /* Pods_iWatchmanTests.framework */; };
+		90250E8D1E83BBB900115514 /* AllCameraEventsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90250E891E83BBB900115514 /* AllCameraEventsCollectionViewController.swift */; };
+		90250E8E1E83BBB900115514 /* CameraEventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90250E8A1E83BBB900115514 /* CameraEventCollectionViewCell.swift */; };
+		90250E8F1E83BBB900115514 /* CameraEventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90250E8B1E83BBB900115514 /* CameraEventCollectionViewCell.xib */; };
+		90250E901E83BBB900115514 /* UIColor+CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90250E8C1E83BBB900115514 /* UIColor+CustomColor.swift */; };
 		906B93C71E590B1000E2D1E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B93C61E590B1000E2D1E2 /* AppDelegate.swift */; };
 		906B93C91E590B1000E2D1E2 /* AllCameraEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906B93C81E590B1000E2D1E2 /* AllCameraEventsViewController.swift */; };
 		906B93CC1E590B1000E2D1E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 906B93CA1E590B1000E2D1E2 /* Main.storyboard */; };
@@ -50,6 +54,10 @@
 		8AE432471FEE1EA30E74C6BD /* Pods-iWatchmanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWatchmanUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iWatchmanUITests/Pods-iWatchmanUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8B85626851EDA323CED6EAFE /* Pods-iWatchman.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iWatchman.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iWatchman/Pods-iWatchman.debug.xcconfig"; sourceTree = "<group>"; };
 		90250E881E83834F00115514 /* iWatchman.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iWatchman.entitlements; sourceTree = "<group>"; };
+		90250E891E83BBB900115514 /* AllCameraEventsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCameraEventsCollectionViewController.swift; sourceTree = "<group>"; };
+		90250E8A1E83BBB900115514 /* CameraEventCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraEventCollectionViewCell.swift; sourceTree = "<group>"; };
+		90250E8B1E83BBB900115514 /* CameraEventCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraEventCollectionViewCell.xib; sourceTree = "<group>"; };
+		90250E8C1E83BBB900115514 /* UIColor+CustomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColor.swift"; sourceTree = "<group>"; };
 		906B93C31E590B1000E2D1E2 /* iWatchman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWatchman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		906B93C61E590B1000E2D1E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		906B93C81E590B1000E2D1E2 /* AllCameraEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCameraEventsViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +140,10 @@
 				90250E881E83834F00115514 /* iWatchman.entitlements */,
 				906B93C61E590B1000E2D1E2 /* AppDelegate.swift */,
 				906B93C81E590B1000E2D1E2 /* AllCameraEventsViewController.swift */,
+				90250E891E83BBB900115514 /* AllCameraEventsCollectionViewController.swift */,
+				90250E8A1E83BBB900115514 /* CameraEventCollectionViewCell.swift */,
+				90250E8B1E83BBB900115514 /* CameraEventCollectionViewCell.xib */,
+				90250E8C1E83BBB900115514 /* UIColor+CustomColor.swift */,
 				90F9A29D1E7DC6D5005C5446 /* Event.swift */,
 				90F9A29F1E7E2B5B005C5446 /* DataManager.swift */,
 				906B94321E5A0EAF00E2D1E2 /* CameraEventCell.swift */,
@@ -326,6 +338,7 @@
 				906B93CE1E590B1000E2D1E2 /* Assets.xcassets in Resources */,
 				906B93CC1E590B1000E2D1E2 /* Main.storyboard in Resources */,
 				906B947A1E5E2A0100E2D1E2 /* X1qIijvAk2Q.mp4 in Resources */,
+				90250E8F1E83BBB900115514 /* CameraEventCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,8 +501,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90250E8E1E83BBB900115514 /* CameraEventCollectionViewCell.swift in Sources */,
+				90250E901E83BBB900115514 /* UIColor+CustomColor.swift in Sources */,
 				906B94711E5AB3B600E2D1E2 /* CameraEventDetailViewController.swift in Sources */,
 				90F9A2A01E7E2B5B005C5446 /* DataManager.swift in Sources */,
+				90250E8D1E83BBB900115514 /* AllCameraEventsCollectionViewController.swift in Sources */,
 				906B94331E5A0EAF00E2D1E2 /* CameraEventCell.swift in Sources */,
 				906B93C91E590B1000E2D1E2 /* AllCameraEventsViewController.swift in Sources */,
 				906B93C71E590B1000E2D1E2 /* AppDelegate.swift in Sources */,

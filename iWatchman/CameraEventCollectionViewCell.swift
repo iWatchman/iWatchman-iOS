@@ -15,10 +15,14 @@ class CameraEventCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var cameraNameLabel: UILabel!
     
+    var associatedEvent: Event?
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         layer.cornerRadius = 4.5
         clipsToBounds = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCellForNotification(notification:)), name: NSNotification.Name.init("DOWNLOADED_THUMBNAIL"), object: DataManager.sharedInstance)
         
         addShadow()
     }
@@ -38,13 +42,36 @@ class CameraEventCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(_ event: Event) {
+        associatedEvent = event
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.full
         let dateString = dateFormatter.string(from: event.eventDate as Date)
         
         dateLabel.text = dateString
         //cameraNameLabel.text = event.cameraName
-        //thumbnailImageView.image =
+        if let thumbnailImage = event.eventThumbnail {
+            thumbnailImageView.image = UIImage(data: thumbnailImage as Data)
+        }
     }
     
+    func updateThumbnail(event: Event) {
+        if let thumbnailImage = event.eventThumbnail {
+            thumbnailImageView.image = UIImage(data: thumbnailImage as Data)
+        }
+    }
+    
+    func updateCellForNotification(notification: NSNotification) {
+        if let event = notification.userInfo?["event"] {
+            if let myEvent = associatedEvent {
+                if myEvent.remoteID == (event as! Event).remoteID {
+                    DispatchQueue.main.async { [weak self]
+                        () -> Void in
+                            self?.updateThumbnail(event: event as! Event)
+                        }
+                }
+
+            }
+        }
+    }
 }
