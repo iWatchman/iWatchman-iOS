@@ -27,4 +27,11 @@ open iWatchman.xcworkspace/
 ### Loading app onto device
 
 After you've completed the developer setup, connect your iPhone to the mac, 
-select the device in Xcode (next to the play button) and run the app. 
+select the device in Xcode (next to the play button) and run the app.
+
+## Contributing
+
+We would love to receive pull requests!
+
+Please review our style guide, located [here](https://github.com/iWatchman/style-guide)
+before you dive in! 
